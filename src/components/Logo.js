@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
-
+import maggiole from "./icons/maggiole.svg";
 function Logo({ guesses }) {
   return (
     <Box
@@ -13,30 +13,15 @@ function Logo({ guesses }) {
         marginTop: 4,
       }}
     >
-      <Typography
+      <Box
+        component="img"
         sx={{
-          fontSize: "5rem",
-          "@media (min-width:1000px)": {
-            fontSize: "12.5rem",
-          },
-          lineHeight: "90%",
-          color: "#41212A",
+          width: "80%",
+          height: "auto",
+          marginInline: 1,
         }}
-      >
-        MAGGIOLE
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: "1.75rem",
-          "@media (min-width:1000px)": {
-            fontSize: "3rem",
-          },
-          lineHeight: "100%",
-          color: "#41212A",
-        }}
-      >
-        GISSA VERONICA MAGGIO LÅTEN
-      </Typography>
+        src={maggiole}
+      />
       <Typography
         sx={{
           fontSize: "1.25rem",
