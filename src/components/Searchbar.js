@@ -12,6 +12,7 @@ function Searchbar({
   chosen,
   guesses,
   setGuesses,
+  handleModal,
 }) {
   return (
     <Box

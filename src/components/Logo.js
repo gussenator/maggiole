@@ -1,7 +1,8 @@
 import React from "react";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import maggiole from "./icons/maggiole.svg";
-function Logo({ guesses }) {
+import questionmark from "./icons/questionmark.svg";
+function Logo({ guesses, showModal, setShowModal, handleModal }) {
   return (
     <Box
       sx={{
@@ -19,21 +20,39 @@ function Logo({ guesses }) {
           width: "80%",
           height: "auto",
           marginInline: 1,
+          maxWidth: 800,
         }}
         src={maggiole}
       />
-      <Typography
-        sx={{
-          fontSize: "1.25rem",
-          "@media (min-width:600px)": {
-            fontSize: "2rem",
-          },
-          lineHeight: "150%",
-          color: "#41212A",
-        }}
-      >
-        {guesses} / 8 gissningar
-      </Typography>
+      <Box sx={{ display: "flex" }}>
+        <Typography
+          sx={{
+            fontSize: "1.25rem",
+            "@media (min-width:600px)": {
+              fontSize: "2rem",
+            },
+            lineHeight: "150%",
+            color: "#41212A",
+          }}
+        >
+          {guesses} / 8 gissningar
+        </Typography>
+        <Button onClick={() => handleModal()}>
+          <Box
+            component="img"
+            sx={{
+              width: "1.25rem",
+              height: "1.25rem",
+              "@media (min-width:600px)": {
+                width: "2rem",
+                height: "2rem",
+              },
+              marginInline: 2,
+            }}
+            src={questionmark}
+          />
+        </Button>
+      </Box>
     </Box>
   );
 }

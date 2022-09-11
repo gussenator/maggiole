@@ -2,10 +2,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Moret from "./fonts/Moret-Bold.ttf";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
 import Logo from "./components/Logo";
 import Searchbar from "./components/Searchbar";
 import SongTable from "./components/SongTable";
+import Modal from "./components/Modal";
 import { useEffect, useState } from "react";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -722,15 +725,27 @@ function App() {
   );
   const [win, setWin] = useState(false);
   const [guesses, setGuesses] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     if (win === true || guesses === 8) {
       setSongs([]);
     }
   }, [win, guesses]);
+
+  function handleModal() {
+    setShowModal(!showModal);
+  }
   return (
     <Box sx={{ bgcolor: "#B67C82", height: "auto", width: "100vw" }}>
+      {(showModal && <Modal handleModal={handleModal} />) || <div></div>}
       <ThemeProvider theme={theme}>
-        <Logo guesses={guesses} />
+        <Logo
+          guesses={guesses}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          handleModal={handleModal}
+        />
         <Searchbar
           songs={songs}
           songList={songList}
