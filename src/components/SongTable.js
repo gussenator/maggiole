@@ -136,8 +136,8 @@ function SongTable({ songs, songList, chosen }) {
     <TableContainer
       component={Paper}
       sx={{
-        "@media (min-width:600px)": {
-          width: "75%",
+        "@media (min-width:1000px)": {
+          width: "80%",
         },
         width: "100%",
         marginInline: "auto",
